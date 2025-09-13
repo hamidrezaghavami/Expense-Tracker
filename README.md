@@ -1,19 +1,38 @@
-#Expense Tracker API
-A backend API designed to help users manage their expenses efficiently. Built as part of the roadmap.sh backend project series, 
-this application allows users to securely track their spending with features like authentication, expense management, 
-and data filtering.
+#Expense Tracker
 
-#features
-Users can add an expense with a description and amount.
-Users can update an expense.
-Users can delete an expense.
-Users can view all expenses.
-Users can view a summary of all expenses.
-Users can view a summary of expenses for a specific month (of current year).
+A simple Expense Tracker API built with Node.js and Express. This project is part of the roadmap.sh backend projects.
 
-##Start the server
-npm start
+🚀 ##Features
+	•	Add Expenses – Record your spending with details like title, amount, category, and date.
+	•	View Expenses – List all your expenses or filter by category and date.
+	•	Update & Delete – Modify or remove expenses as needed.
+	•	JSON Storage – All data is stored in JSON files for simplicity.
 
-##clone the repository
+📦 ##Installation
+	1.	Clone the repository:
+
 git clone https://github.com/hamidrezaghavami/Expense-Tracker.git
 cd Expense-Tracker
+
+	2.	Install dependencies:
+
+npm install
+
+	3.	Start the server:
+
+node index.js
+
+The API will run at http://localhost:3000 (or your chosen port).
+
+🧩 ##Project Structure
+
+/Expense-Tracker
+├── index.js
+├── routes/
+├── controllers/
+├── data/       # JSON files for storing expenses
+└── README.md
+
+🔗 ##Project Link
+
+Check the project guide here: https://roadmap.sh/projects/expense-tracker

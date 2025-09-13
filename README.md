@@ -22,16 +22,7 @@ npm install
 
 node index.js
 
-The API will run at http://localhost:3000 (or your chosen port).
-
-🧩 ##Project Structure
-
-/Expense-Tracker
-├── index.js
-├── routes/
-├── controllers/
-├── data/       # JSON files for storing expenses
-└── README.md
+The API will run at localhost:3000 (or your chosen port).
 
 🔗 ##Project Link
 

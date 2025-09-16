@@ -1,6 +1,6 @@
 #Expense Tracker
 
-A simple Expense Tracker API built with Node.js and Express. This project is part of the roadmap.sh backend projects.
+A simple Expense Tracker CLI built with Node.js and Express. This project is part of the roadmap.sh backend projects.
 
 🚀 ##Features
 	•	Add Expenses – Record your spending with details like title, amount, category, and date.

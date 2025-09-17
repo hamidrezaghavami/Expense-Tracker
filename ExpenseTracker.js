@@ -8,23 +8,25 @@
 
 // import nessary headers
 import readline from 'readline-sync';
-const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
 // create a class for the expense tracker
 class ExpenseTracker { 
     constructor() {
         this.expenses = [];
-        this.totalExpenses = 0;
+    }
+
+    // helper function
+    getTotal() {
+    return this.expenses.reduce((sum, e) => sum + e.amount, 0);
     }
 
     add() { 
-        const amount = parseFloat(readline.question("Enter the amount of money comes to your account: "));
+        const amount = parseFloat(readline.question("Enter the amount of the expense: "));
         const description = readline.question("Enter the description of the expense: ");
         if ( amount > 0 ) { 
-            this.expenses.push({ amount, description});
-            this.totalExpenses += amount;
+            this.expenses.push({ amount, description, date: new Date() });
         } else { 
-            console.log("Amount must be greater than 0!");
+            console.log("Invalid amount!");
         }
     }
 
@@ -33,7 +35,7 @@ class ExpenseTracker {
         if ( index >= 0 && index < this.expenses.length ) { 
             const amount = parseFloat(readline.question("Enter the new amount of the expense: "));
             const description = readline.question("Enter the new description of the expense: ");
-            this.expenses[index] = { amount, description };
+            this.expenses[index] = { amount, description, date: new Date() };
         } else { 
             console.log("Invalid index!");
         }
@@ -48,24 +50,20 @@ class ExpenseTracker {
         }
     }
 
-    view() { 
-        console.log("Expenses: ");
-        for ( let expenses of this.expenses ) { 
-            console.log(`Amount: ${expenses.amount}, description: ${expenses.description}`);
-        }
-        console.log(`Total Expenses: ${this.totalExpenses}`);
+    view() {
+    console.log("Expenses:");
+    this.expenses.forEach((e, i) => 
+        console.log(`${i}. Amount: ${e.amount}, desc: ${e.description}, date: ${e.date.toLocaleDateString()}`)
+    );
+    console.log(`Total Expenses: ${this.getTotal()}`);
     }
 
-    summary() { 
-        console.log("Please enter the month that for month's summary");
-        const month = readline.question("Enter the month: ");
-        let totalExpenses = 0;
-        for ( let expenses of this.expenses ) { 
-            if ( expenses.description.includes(month)) { 
-                totalExpenses += expenses.amount;
-            }
-        }
-        console.log(`Total Expenses in ${month}: ${totalExpenses}`);
+    summary() {
+    const month = parseInt(readline.question("Enter the month (1-12): "));
+    const total = this.expenses
+        .filter(e => e.date.getMonth() + 1 === month)
+        .reduce((sum, e) => sum + e.amount, 0);
+    console.log(`Total expenses in month ${month}: ${total}`);
     }
 }
 

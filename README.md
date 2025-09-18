@@ -2,7 +2,7 @@
 
 A simple Expense Tracker CLI built with Node.js and Express. This project is part of the roadmap.sh backend projects.
 
-🚀 ##Features
+##Features
 	•	Add Expenses – Record your spending with details like title, amount, category, and date.
 	•	View Expenses – List all your expenses or filter by category and date.
 	•	Update & Delete – Modify or remove expenses as needed.

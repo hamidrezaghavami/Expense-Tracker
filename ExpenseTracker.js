@@ -110,4 +110,5 @@ function main () {
     } while ( input !== '6' );
 }
 
+// call the main function
 main();

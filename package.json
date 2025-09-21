@@ -1,0 +1,23 @@
+{
+  "name": "expensetracker",
+  "version": "1.0.0",
+  "description": "A simple Expense Tracker write with nodejs",
+  "keywords": [
+    "nodejs"
+  ],
+  "homepage": "https://github.com/hamidrezaghavami/Expense-Tracker#readme",
+  "bugs": {
+    "url": "https://github.com/hamidrezaghavami/Expense-Tracker/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hamidrezaghavami/Expense-Tracker.git"
+  },
+  "license": "MIT",
+  "author": "Hamid Reza Ghavami",
+  "type": "commonjs",
+  "main": "ExpenseTracker.js",
+  "scripts": {
+    "test": "test"
+  }
+}

@@ -1,12 +1,3 @@
-/*
-* @author HamidReza Ghavami
-* @date 2025-09-15
-* @version 1.0
-* @license MIT
-* @description A simple Expense Tracker CLI.
-*/
-
-// import nessary headers
 import readline from 'readline-sync';
 
 // create a class for the expense tracker
@@ -20,34 +11,26 @@ class ExpenseTracker {
     return this.expenses.reduce((sum, e) => sum + e.amount, 0);
     }
 
-    add() { 
+    add() { // simplify +2 lines
         const amount = parseFloat(readline.question("Enter the amount of the expense: "));
         const description = readline.question("Enter the description of the expense: ");
-        if ( amount > 0 ) { 
-            this.expenses.push({ amount, description, date: new Date() });
-        } else { 
-            console.log("Invalid amount!");
-        }
+        if ( amount <= 0 ) return console.log("Invalid amount!");
+        this.expenses.push({ amount, description, date: new Date() });
     }
 
-    update() {
+    update() { // simplified for clearity
         const index = parseInt(readline.question("Enter the index of the expense you want to update: "));
-        if ( index >= 0 && index < this.expenses.length ) { 
-            const amount = parseFloat(readline.question("Enter the new amount of the expense: "));
-            const description = readline.question("Enter the new description of the expense: ");
-            this.expenses[index] = { amount, description, date: new Date() };
-        } else { 
-            console.log("Invalid index!");
-        }
+        if ( index < 0 || index >= this.expenses.length ) return console.log("Invalid index!");
+
+        const amount = parseFloat(readline.question("Enter the new amount of the expense: "));
+        const description = readline.question("Enter the new description of the expense: ");
+        this.expenses[index] = { amount, description, date: new Date() };
     }
 
-    delete() { 
+    delete() { // simplified for clearity
         const index = parseInt(readline.question("Enter the index of the expense you want to delete: "));
-        if ( index >= 0 && index < this.expenses.length ) { 
-            this.expenses.splice(index, 1);
-        } else { 
-            console.log("Invalid index!");
-        }
+        if ( index < 0 || index >= this.expenses.length ) return console.log("Invalid index!");
+        this.expenses.splice(index, 1);
     }
 
     view() {

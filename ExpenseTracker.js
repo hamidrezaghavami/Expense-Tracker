@@ -50,46 +50,37 @@ class ExpenseTracker {
     }
 }
 
-// create a main function to run the porgram
+// create a main function to run the porgram 
+// ( refactored and simplified from 40 lines into 30)
 function main () { 
     const expenseTracker = new ExpenseTracker();
+    
+    const actions = { 
+        '1': () => expenseTracker.add(),
+        '2': () => expenseTracker.update(),
+        '3': () => expenseTracker.delete(),
+        '4': () => expenseTracker.view(),
+        '5': () => expenseTracker.summary(),
+        '6': () => console.log("exiting from the porgam!"),
+    };
     let input;
     do { 
-        console.log("1. Add");
-        console.log("2. Update");
-        console.log("3. Delete");
-        console.log("4. View");
-        console.log("5. Summary");
-        console.log("6. Exit");
-        input = readline.question("Enter your choice: ");
-    switch (input) { 
-        case '1':
-            expenseTracker.add();
-            break;
-            
-        case '2':
-            expenseTracker.update();
-        break;
+        console.log(`
+            1. Add
+            2. Update
+            3. Delete
+            4. View
+            5. Summary
+            6. Exit
+            `);
+            input = readline.question("Enter your choice: ");
+            const action = actions[input];
 
-        case '3':
-            expenseTracker.delete();
-        break;
-
-        case '4':
-            expenseTracker.view();
-        break;
-
-        case '5':
-            expenseTracker.summary();
-        break;
-
-        case '6':
-            console.log("Exiting from program!");
-        break;
-        default:
-            console.log("Invalid chooice!");
-        break;    
-        }
+            if ( action) { 
+                action();
+            } else { 
+                console.log("invalid choice");
+            }
     } while ( input !== '6' );
 }
 
